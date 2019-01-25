@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <span class="navbar-brand" href="#">
+    <i class="fas fa-flag-usa"></i> Political Scraper
+  </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+ 
+      <form class="form-inline">
+    <button class="btn btn-light btn-sm scrape" type="button">Scrape</button>
+  </form>
+  </div>
+</nav>
+    <div class="img_container">
+      <img class="capitol img-fluid w-100" src="../images/capitol-panoramic-56a236e95f9b58b7d0c7f838.jpg">
+      <div class="centered">{{articleName}}</div>
+    </div>
+   {{#each notes}}
+  <div class="card m-5">
+    <div class="row card-header text-white bg-primary mx-0">
+      <div class="col-sm-10">Title: {{this.title}}</div>
+      <div class="col-sm-1"><button class="btn btn-light btn-sm update" data-id={{this._id}} data-title={{this.title}} data-body={{this.body}} type="button">Update Note</button></div>
+      <div class="col-sm-1"><button class="btn btn-danger btn-sm delete" data-id={{this._id}} type="button">Delete Note</button></div>
+    </div> 
+    <div class="card-body">
+      <p class="card-text px-3">Body: {{this.body}}</p>
+    </div>
+</div>
+{{else}}
+  <div class="card m-5 text-center">
+    <div class="row card-header text-white bg-danger mx-0">
+      <div class="col-sm-12">There aren't any notes on this article.</div>
+    </div> 
+</div>
+ {{/each}}
+
+ <!-- Note Modal -->
+ <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title title"></h5>
+      </div>
+      <div class="modal-body">
+       <form>
+         <div class="form-group">
+            <label for="modalTitle">Title</label>
+            <textarea class="form-control modalTitleInput" id="modalTitle" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="modalBody">Body</label>
+          <textarea class="form-control modalBodyInput" id="modalBody" rows="3"></textarea>
+        </div>
+      <button type="submit" class="btn btn-primary updateButton">Update</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
