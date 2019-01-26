@@ -6,10 +6,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
- 
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/articles/">All Articles</a>
+      </li>
+    
       <form class="form-inline">
-    <button class="btn btn-light btn-sm scrape" type="button">Scrape</button>
+    <button class="btn btn-light btn-sm mx-1 scrape" type="button">Scrape</button>
   </form>
+  </ul>
   </div>
 </nav>
     <div class="img_container">
@@ -31,7 +39,7 @@
 {{else}}
   <div class="card m-5 text-center">
     <div class="row card-header text-white bg-danger mx-0">
-      <div class="col-sm-12">There aren't any notes on this article.</div>
+      <div class="col-sm-12">No Articles have been scraped in the last 6 hours. Click "Scape" to see what's new.</div>
     </div> 
 </div>
  {{/each}}

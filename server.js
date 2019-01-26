@@ -51,7 +51,7 @@ app.get("/scrape", function(req, res) {
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).find("h2").text();
       result.content = $(this).find(".entry-content").text();
-      result.link = $(this).find("a.entry-title-link").attr("href");
+      result.link = $(this).find(".entry-content").find("a").attr("href");
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -69,8 +69,17 @@ app.get("/scrape", function(req, res) {
 });
 
 app.get("/", function(req, res) {
-  let hbsObject;
-  res.render("home", hbsObject);
+  let start = new Date(new Date().getTime() - (6 * 60 * 60 * 1000));
+  db.Article.find({date: {$gte: start}}).sort({ createdAt: -1 }).then(dbArticles => {
+    let hbsObject = {
+      articles: dbArticles
+    };
+    res.render("index", hbsObject);
+  })
+  .catch(function(err) {
+    // If an error occurred, send it to the client
+    res.json(err);
+  });
 })
 
 // Route for getting all Articles from the db

@@ -1,6 +1,6 @@
 $(document).on("click", ".scrape", function() {
   $.get(`/scrape`, data => {
-    location.href = "/articles";
+    location.reload()
   });
 });
 
@@ -34,7 +34,10 @@ $(document).on("click", ".buttonID", function() {
       title: $("#modalTitle").val(),
       body: $("#modalBody").val()
     }
-  }).then(data => console.log("Created new Note"));
+  }).then(data => {
+      console.log("Created new Note")
+    location.href="/articles/" + articleId;    
+    });
 });
 
 $(document).on("click", ".updateButton", function() {
@@ -64,3 +67,5 @@ $(document).on("click", ".delete", function() {
     location.reload();
   });
 });
+
+
