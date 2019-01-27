@@ -32,7 +32,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/NewsScraper", { useNewUrlParser: true });
+mongoose.connect("mongodb://user:userpassword1>@ds213755.mlab.com:13755/heroku_hcpng9rx", { useNewUrlParser: true });
 
 // Routes
 
