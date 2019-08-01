@@ -19,5 +19,5 @@ Users can then add notes to the various articles and view those left by others. 
 * Bootstrap
 * Heroku
 
-### Authors
+### Author
 This application was made by and is maintained by Andrew Andersen. Development of this application has slowed but there are hopes for expansion in the future.
