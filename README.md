@@ -1,4 +1,4 @@
-# News Scraper
+# [News Scraper](https://political-scraper.herokuapp.com/)
 
 ### About
 This is an web application that is designed around the npm Cheerio. When a user click's 'Scrape', articles from [Political Wire](www.politicalwire.com) are displayed and added to a mongo database. 
@@ -20,4 +20,4 @@ Users can then add notes to the various articles and view those left by others. 
 * Heroku
 
 ### Authors
-This application was made and is maintained by Andrew Andersen. Development of this application has slowed but there are hopes for expansion in the future.
+This application was made by and is maintained by Andrew Andersen. Development of this application has slowed but there are hopes for expansion in the future.
